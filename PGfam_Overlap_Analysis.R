@@ -9,7 +9,7 @@
 
 # Set env
 
-setwd("/Users/martinjahn/Library/CloudStorage/Dropbox/postdoc/projects/Erik_TheGoodnBad/paper/code/toGithub")
+setwd("Path to Nutrient_blocking" )
 library(plyr)
 library(readxl)
 library(tidyverse)
@@ -24,11 +24,11 @@ PATHOGEN = "Klebsiella" # Can be [Salmonella,Klebsiella] # Pathogen to analyse
 # Set paths
 
 if (PATHOGEN == "Salmonella"){
-  pathoLink = "data/annotations/216597.6.features.tab.Salmonella.pathogen.tsv"
+  pathoLink = "data/annotations/Salmonella_216597.6.PATRIC.pathogen.tab.tsv" 
   comLink = "data/Comunities_v2_Salmonella_EB.xlsx"
   print("Processing Salmonella")
 } else if (PATHOGEN == "Klebsiella"){
-  pathoLink = "data/annotations/1162296.3.features.tab.Klebsiella.pathogen.tsv"
+  pathoLink = "data/annotations/Klebsiella_1162296.3.PATRIC.pathogen.tab.tsv"
   comLink = "data/Comunities_v2_KlebsiellaSet.xlsx"
   print("Processing Klebsiella")
 } else {
@@ -45,7 +45,7 @@ genome_meta <- read_excel(genomeMetadata) # Load genome info table
 pan = read.csv(pgfamMetadata) # Load cluster metadata for set
 colnames(pan) = paste0("PGfam_",colnames(pan))
 
-# Download annotations from PATRIC
+# Download annotations from PATRIC (optional, see data/annotations for original files)
 
 ## Community
 
@@ -61,10 +61,10 @@ for (i in 1:nrow(genome_meta_Com50)){
 ## Pathogens
 
 Purl.Salmo = paste0("ftp://ftp.bvbrc.org/genomes/", "216597.6", "/", "216597.6", "*.features.tab")
-download.file(Purl.Salmo, destfile = paste0("data/annotations/", "216597.6",".features.tab.Salmonella.pathogen.tsv"), quiet = F, mode = "wb",method = "wget")
+download.file(Purl.Salmo, destfile = "data/annotations/Salmonella_216597.6.PATRIC.pathogen.tab.tsv", quiet = F, mode = "wb",method = "wget")
 Purl.Salmo = NULL
 Purl.Klebs = paste0("ftp://ftp.bvbrc.org/genomes/", "1162296.3", "/", "1162296.3", "*.features.tab")
-download.file(Purl.Klebs, destfile = paste0("data/annotations/", "1162296.3",".features.tab.Klebsiella.pathogen.tsv"), quiet = F, mode = "wb",method = "wget")
+download.file(Purl.Klebs, destfile = "data/annotations/Klebsiella_1162296.3.PATRIC.pathogen.tab.tsv", quiet = F, mode = "wb",method = "wget")
 Purl.Klebs  = NULL
 
 
@@ -189,5 +189,3 @@ foo  %>% filter(CommunityID != "SL1344 itself") %>% filter(CommunityID != "Klebs
   ggscatter( x = "nstrains", y = "nCluster", color = "ecoCom", 
              palette = c("black","green"),
              xlab = "n strains", ylab = "cluster diversity") 
-
-
