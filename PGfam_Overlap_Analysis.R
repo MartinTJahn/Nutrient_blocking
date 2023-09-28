@@ -82,12 +82,7 @@ for (i in list.files(pattern = ".features.tab$",path = "data/annotations/", recu
 # Cluster stats for Community set 
 table(annotation$feature_type) # print available annotation types
 annotation <- subset(annotation, feature_type == "CDS") # focus on CDS for analyses 
-table(annotation$pgfam_id != "") # PGFams annotation rate: 153771 of 170,334 = 90.3%
-
-# New code new set: 153771 of 170,334 = 90.27%
-# New code with old community tab files: 153771 of 157,283 = 97.8 %
-# Old version from paper: PGFams annotation rate: 153,771 of 157283 = 97.8 %
-## this indicates that downloaded version has more (n=13051) non-annotated CDS  
+table(annotation$pgfam_id != "") # PGFams annotation rate: 153,771 of 157283 = 97.8 % (for PATRIC genome annotation versions as of Sept 2023, see: data/annotations/)
 
 mean(pan$PGfam_Genomes) # PGfams covered by on average 2.44 genomes in set
 ggplot(pan, aes(x = PGfam_Genomes)) + geom_histogram(size = 100, bins = 50, binwidth = .5, )  + theme_bw() + geom_vline(aes(xintercept=mean(pan$PGfam_Genomes)), linetype="dashed") # Plot distrition, genomes per pgfam
