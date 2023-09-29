@@ -6,7 +6,7 @@ _Diverse gut microbiomes are associated with health benefits, including protecti
 
 **PGfam_Overlap_Analysis.R** code to calculate the PGfam overlap between pathogens and defined communities. Overlap scores are correlated with experimental data.
 
-**Community_simulator.R** code to simulate microbial communities and their functional overlap with a focal pathogen
+**Community_simulator.R** code to simulate microbial communities and their functional overlap with a focal pathogen.
 
 **Experimental data from _in vitro_ experiments** (/data)
 
