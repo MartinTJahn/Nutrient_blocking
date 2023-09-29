@@ -51,21 +51,21 @@ colnames(pan) = paste0("PGfam_",colnames(pan))
 
 genome_meta_Com50 = subset(genome_meta , !genome_meta$StrainID %in% c("EcoHS","EcoMG1655", "EcoZ1269","EcoZ1331")) # focus on EcoIAI1 as community member
 
-for (i in 1:nrow(genome_meta_Com50)){
-  print(paste0("Downloaded:   ",i, "  of  ",nrow(genome_meta_Com50) ))
-  genomeID = genome_meta_Com50$`Genome ID`[i]
-  url = paste0("ftp://ftp.bvbrc.org/genomes/", genomeID, "/", genomeID, "*.features.tab")
-  download.file(url, destfile = paste0("data/annotations/", genomeID,".features.tab"), quiet = F, mode = "wb",method = "wget")
-} 
+#for (i in 1:nrow(genome_meta_Com50)){
+#  print(paste0("Downloaded:   ",i, "  of  ",nrow(genome_meta_Com50) ))
+#  url = paste0("ftp://ftp.bvbrc.org/genomes/", genomeID, "/", genomeID, "*.features.tab")
+#  genomeID = genome_meta_Com50$`Genome ID`[i]
+#  download.file(url, destfile = paste0("data/annotations/", genomeID,".features.tab"), quiet = F, mode = "wb",method = "wget")
+#} 
 
 ## Pathogens
 
-Purl.Salmo = paste0("ftp://ftp.bvbrc.org/genomes/", "216597.6", "/", "216597.6", "*.features.tab")
-download.file(Purl.Salmo, destfile = "data/annotations/Salmonella_216597.6.PATRIC.pathogen.tab.tsv", quiet = F, mode = "wb",method = "wget")
-Purl.Salmo = NULL
-Purl.Klebs = paste0("ftp://ftp.bvbrc.org/genomes/", "1162296.3", "/", "1162296.3", "*.features.tab")
-download.file(Purl.Klebs, destfile = "data/annotations/Klebsiella_1162296.3.PATRIC.pathogen.tab.tsv", quiet = F, mode = "wb",method = "wget")
-Purl.Klebs  = NULL
+#Purl.Salmo = paste0("ftp://ftp.bvbrc.org/genomes/", "216597.6", "/", "216597.6", "*.features.tab")
+#download.file(Purl.Salmo, destfile = "data/annotations/Salmonella_216597.6.PATRIC.pathogen.tab.tsv", quiet = F, mode = "wb",method = "wget")
+#Purl.Salmo = NULL
+#Purl.Klebs = paste0("ftp://ftp.bvbrc.org/genomes/", "1162296.3", "/", "1162296.3", "*.features.tab")
+#download.file(Purl.Klebs, destfile = "data/annotations/Klebsiella_1162296.3.PATRIC.pathogen.tab.tsv", quiet = F, mode = "wb",method = "wget")
+#Purl.Klebs  = NULL
 
 
 # Combine Community annotation from PATRIC
