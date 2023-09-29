@@ -16,7 +16,7 @@ COMMUNITYSET = "all" # "all", or "TOP10
 
 
 # Set env
-setwd("~/Downloads/Nutrient_blocking-main/")
+setwd("Path to Nutrient_blocking" )
 library(plyr)
 library(readxl)
 library(tidyverse)
@@ -96,7 +96,7 @@ com.annot = NULL
 PossibleComs = NULL
 counter = 1
 samples = 100000000000000 # max picking trials
-nCOMs = 1000 #  unique communities to be simulated   
+nCOMs = 10000 #  unique communities to be simulated   
 
 
 for (i in 1:samples){
@@ -145,7 +145,7 @@ com.annot = NULL
 PossibleComs = NULL
 counter = 1
 samples = 100000000000000 # max picking trials
-nCOMs = 100  #  unique communities to be simulated   
+nCOMs = 10000  #  unique communities to be simulated   
 
 for (i in 1:samples){
   # pick a random list of strains
